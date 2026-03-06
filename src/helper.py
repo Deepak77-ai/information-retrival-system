@@ -12,7 +12,7 @@ from langchain_community.vectorstores import FAISS #📦 FAISS = fast search box
 #Stores text embeddings and helps find similar text.
 
 from langchain_classic.chains import ConversationalRetrievalChain
-from langchain.memory import ConversationBufferMemory
+from langchain.memory.buffer import ConversationBufferMemory
 
 from langchain_groq import ChatGroq #This is your AI brain (LLM) running on Groq servers.
 
