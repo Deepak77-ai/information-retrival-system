@@ -7,3 +7,4 @@ langchain-text-splitters
 langchain-groq
 sentence-transformers
 faiss-cpu
+
