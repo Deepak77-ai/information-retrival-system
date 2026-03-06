@@ -1,9 +1,9 @@
 streamlit
 python-dotenv
 PyPDF2
-langchain==0.2.14
-langchain-core
+langchain
 langchain-community
+langchain-text-splitters
 langchain-groq
 sentence-transformers
 faiss-cpu
