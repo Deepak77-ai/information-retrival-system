@@ -1,22 +1,22 @@
 import os
 from dotenv import load_dotenv
 
-from PyPDF2 import PdfReader#Used to read PDF files page by page
+from PyPDF2 import PdfReader #Used to read PDF files page by page
 
-from langchain_text_splitters import RecursiveCharacterTextSplitter#✂️ Used to cut big text into small pieces
+from langchain_text_splitters import RecursiveCharacterTextSplitter #✂️ Used to cut big text into small pieces
 #Why?
 #LLMs can’t read very long text at once
 
-from langchain.embeddings import HuggingFaceEmbeddings#🧠 Converts text → numbers
-from langchain.vectorstores import FAISS#📦 FAISS = fast search box
+from langchain_community.embeddings import HuggingFaceEmbeddings #🧠 Converts text → numbers
+from langchain_community.vectorstores import FAISS #📦 FAISS = fast search box
 #Stores text embeddings and helps find similar text.
 
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 
-from langchain_groq import ChatGroq#This is your AI brain (LLM) running on Groq servers.
+from langchain_groq import ChatGroq #This is your AI brain (LLM) running on Groq servers.
 
-load_dotenv()#Reads .env file and loads environment variables into the program. This is where we get our GROQ_API_KEY from.
+load_dotenv() #Reads .env file and loads environment variables into the program. This is where we get our GROQ_API_KEY from.
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY #This gives permission to use Groq’s AI.
