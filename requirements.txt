@@ -1,9 +1,9 @@
-streamlit
+streamlit==1.33.0
 python-dotenv
 PyPDF2
-langchain==0.1.20
-langchain-community==0.0.38
-langchain-text-splitters
+langchain==0.1.16
+langchain-community==0.0.34
+langchain-text-splitters==0.0.1
 langchain-groq
 sentence-transformers
 faiss-cpu
