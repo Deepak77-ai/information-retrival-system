@@ -16,6 +16,8 @@ from langchain_groq import ChatGroq
 load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if GROQ_API_KEY is None:
+    raise ValueError("GROQ_API_KEY is missing. Add it to Streamlit secrets.")
 
 
 def get_pdf_text(pdf_docs):
@@ -60,9 +62,9 @@ def get_vectorstore(chunks):
 def get_conversational_chain(vectorstore):
 
     llm = ChatGroq(
-        model="llama3-8b-8192",
-        groq_api_key=GROQ_API_KEY
-    )
+    model_name="qwen/qwen3-32b",
+    groq_api_key=GROQ_API_KEY
+)
 
     memory = ConversationBufferMemory(
         memory_key="chat_history",
