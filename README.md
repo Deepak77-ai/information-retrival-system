@@ -6,6 +6,17 @@ It allows users to upload one or multiple PDF documents and ask questions relate
 The system retrieves relevant information from the PDFs and generates accurate answers using a Large Language Model (LLM).
 
 see live demo(sometimes app takes few sec to load) --> https://information-retrival-system-hjpxqg5wntyc9zsdwnryvt.streamlit.app/ 
+# 🖥️ How to Use
+
+1. Upload one or more PDF files using the sidebar
+
+2. Click Submit & Process
+
+3. Wait for processing to complete
+
+4. Ask questions related to the uploaded PDFs
+
+5. Continue the conversation with follow-up questions
 
 
 # 🚀 Key Features
@@ -106,17 +117,6 @@ streamlit run app.py
 
 Then open the browser link shown in the terminal.
 
-# 🖥️ How to Use
-
-1. Upload one or more PDF files using the sidebar
-
-2. Click Submit & Process
-
-3. Wait for processing to complete
-
-4. Ask questions related to the uploaded PDFs
-
-5. Continue the conversation with follow-up questions
 
 # 🧪 Example Use Cases
 
