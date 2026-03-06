@@ -4,9 +4,9 @@
 This project is a PDF-based Information Retrieval System built using Generative AI and Retrieval-Augmented Generation (RAG).
 It allows users to upload one or multiple PDF documents and ask questions related to their content.
 The system retrieves relevant information from the PDFs and generates accurate answers using a Large Language Model (LLM).
-```
+
 see live demo(sometimes app takes few sec to load) --> https://information-retrival-system-hjpxqg5wntyc9zsdwnryvt.streamlit.app/ 
-```
+
 
 # 🚀 Key Features
 
