@@ -8,7 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
-from langchain_community.chains import ConversationalRetrievalChain
+from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 
 from langchain_groq import ChatGroq
@@ -46,7 +46,7 @@ def get_vectorstore(chunks):
 
 def get_conversational_chain(vectorstore):
 
-    llm = ChatGroq(model_name="llama3-8b-8192")
+    llm = ChatGroq(model="llama3-8b-8192")
 
     memory = ConversationBufferMemory(
         memory_key="chat_history",
