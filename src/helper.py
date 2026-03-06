@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from PyPDF2 import PdfReader#Used to read PDF files page by page
 
-from langchain_text_splitter import RecursiveCharacterTextSplitter#✂️ Used to cut big text into small pieces
+from langchain_text_splitters import RecursiveCharacterTextSplitter#✂️ Used to cut big text into small pieces
 #Why?
 #LLMs can’t read very long text at once
 
