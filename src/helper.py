@@ -45,9 +45,12 @@ def get_vectorstore(chunks):
     return vectorstore
 
 
-def get_conversational_chain(vectorstore):
+ def get_conversational_chain(vectorstore):
 
-    llm = ChatGroq(model="llama3-8b-8192")
+    llm = ChatGroq(
+        model="llama3-8b-8192",
+        groq_api_key=os.getenv("GROQ_API_KEY")
+    )
 
     memory = ConversationBufferMemory(
         memory_key="chat_history",
