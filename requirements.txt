@@ -1,7 +1,7 @@
 streamlit
 python-dotenv
 PyPDF2
-langchain
+langchain==0.2.14
 langchain-core
 langchain-community
 langchain-groq
