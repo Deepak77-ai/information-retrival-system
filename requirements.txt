@@ -2,6 +2,7 @@ streamlit
 python-dotenv
 PyPDF2
 langchain
+langchain-core
 langchain-community
 langchain-groq
 sentence-transformers
