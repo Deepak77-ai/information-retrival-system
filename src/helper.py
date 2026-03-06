@@ -12,7 +12,7 @@ from langchain_community.vectorstores import FAISS #📦 FAISS = fast search box
 #Stores text embeddings and helps find similar text.
 
 from langchain.chains import ConversationalRetrievalChain
-from langchain.memory import ConversationBufferMemory
+from langchain_community.memory import ConversationBufferMemory
 
 from langchain_groq import ChatGroq #This is your AI brain (LLM) running on Groq servers.
 
@@ -43,5 +43,9 @@ def get_vectorstore(chunks):
 def get_conversational_chain(vectorstore):
     llm = ChatGroq(model="openai/gpt-oss-120b")
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
-    conversational_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=vectorstore.as_retriever(), memory=memory)
+    conversational_chain = ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        retriever=vectorstore.as_retriever(),
+        memory=memory
+    )
     return conversational_chain
