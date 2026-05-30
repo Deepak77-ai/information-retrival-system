@@ -1,140 +1,129 @@
-# 📄 Information Retrieval System using Generative AI (RAG)
-# 🔍 Project Overview
+# 📄 Information Retrieval System — RAG-Powered PDF Q&A
 
-This project is a PDF-based Information Retrieval System built using Generative AI and Retrieval-Augmented Generation (RAG).
-It allows users to upload one or multiple PDF documents and ask questions related to their content.
-The system retrieves relevant information from the PDFs and generates accurate answers using a Large Language Model (LLM).
+> Upload any PDF, ask questions in plain English, and get accurate answers — powered by **LangChain + FAISS + Groq (Qwen3-32B)**.
 
-see live demo(sometimes app takes few sec to load) --> https://information-retrival-system-hjpxqg5wntyc9zsdwnryvt.streamlit.app/ 
-# 🖥️ How to Use
+[![Streamlit App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://information-retrival-system-hjpxqg5wntyc9zsdwnryvt.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/LangChain-RAG-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)](https://langchain.com/)
+[![Groq](https://img.shields.io/badge/Groq-Qwen3--32B-F55036?style=for-the-badge)](https://groq.com/)
 
-1. Upload one or more PDF files using the sidebar
+---
 
-2. Click Submit & Process
+## 🚀 Live Demo
 
-3. Wait for processing to complete
+👉 **[Open the App](https://information-retrival-system-hjpxqg5wntyc9zsdwnryvt.streamlit.app/)** *(may take a few seconds to load)*
 
-4. Ask questions related to the uploaded PDFs
+---
 
-5. Continue the conversation with follow-up questions
+## 📸 Screenshot
+
+<img width="1912" height="962" alt="image" src="https://github.com/user-attachments/assets/f35ff025-203d-43a8-9c91-9588d7c339a0" />
 
 
-# 🚀 Key Features
+> Upload a PDF → click **Submit & Process** → ask any question about its contents → get a conversational, context-aware answer.
 
-📄 Upload and process multiple PDF files
+---
 
-✂️ Automatic text extraction and chunking
+## 🧠 What It Does
 
-🧠 Semantic search using vector embeddings
+This app lets you **chat with your PDF documents** using AI. Instead of reading through long files, just ask what you need to know.
 
-📦 FAISS-based vector database for fast retrieval
+**Example use cases:**
+- Q&A from research papers or study notes
+- Querying company policy or HR documents
+- Exploring reports, contracts, or resumes
+- Knowledge retrieval from technical documentation
 
-💬 Conversational question-answering with memory
+---
 
-⚡ Fast inference using Groq-hosted LLM
+## 🏗️ How It Works (RAG Pipeline)
 
-🖥️ Interactive UI built with Streamlit
-
-# 🏗️ Project Architecture
 ```
-project_root/
-│
-├── src/
-│   ├── __init__.py
-│   └── helper.py          # Core backend logic (PDF, embeddings, RAG)
-│
-├── research/
-│   └── trials.ipynb       # Experimentation and testing
-│
-├── app.py                 # Streamlit application (UI)
-├── setup.py               # Project packaging configuration
-├── requirements.txt       # Project dependencies
-├── .env                   # Environment variables (API keys)
-└── README.md
-```
-# 🔄 System Flow (RAG Pipeline)
-
-User uploads PDF documents
-
-Text is extracted from each PDF page
-
-Text is split into overlapping chunks
-
-Chunks are converted into embeddings
-
-Embeddings are stored in FAISS vector store
-
+User uploads PDF(s)
+        ↓
+Text extracted page-by-page  (PyPDF2)
+        ↓
+Split into overlapping chunks  (chunk_size=1000, overlap=20)
+        ↓
+Chunks → Vector Embeddings  (HuggingFace Sentence Transformers)
+        ↓
+Stored in FAISS Vector Database
+        ↓
 User asks a question
-
-Relevant chunks are retrieved using semantic search
-
-LLM generates an answer based on retrieved context
-
-Conversation history is maintained for follow-up questions
-
-# 🧠 Technologies Used
-
-Python
-
-Streamlit – Web application UI
-
-LangChain – RAG and conversational pipeline
-
-FAISS – Vector database for similarity search
-
-HuggingFace Sentence Transformers – Embedding generation
-
-Groq LLM – Large Language Model inference
-
-PyPDF2 – PDF text extraction
-
-# 📦 Installation & Setup
-1️⃣ Clone the Repository
+        ↓
+Semantically similar chunks retrieved from FAISS
+        ↓
+Qwen3-32B (via Groq) generates answer from retrieved context
+        ↓
+Conversation history maintained for follow-up questions
 ```
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Role |
+|---|---|
+| Python 3.8+ | Core language |
+| Streamlit | Web app UI |
+| LangChain | RAG & conversational chain |
+| FAISS | Vector similarity search |
+| HuggingFace Sentence Transformers | Text embeddings |
+| Groq — Qwen3-32B | LLM inference (fast & free) |
+| PyPDF2 | PDF text extraction |
+
+---
+
+## ⚙️ Run Locally
+
+**1. Clone the repository**
+```bash
 git clone <your-repository-url>
-cd <project-folder>
+cd information-retrival-system
 ```
-2️⃣ Create Virtual Environment (Recommended)
-```
+
+**2. Create & activate a virtual environment**
+```bash
 python -m venv venv
-source venv/bin/activate   # Linux / Mac
-venv\Scripts\activate      # Windows
+source venv/bin/activate      # macOS / Linux
+venv\Scripts\activate         # Windows
 ```
-3️⃣ Install Dependencies
-```
+
+**3. Install dependencies**
+```bash
 pip install -r requirements.txt
 ```
-4️⃣ Set Environment Variables
-```
-Create a .env file in the project root:
 
+**4. Set up your API key** — create a `.env` file:
+```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
-▶️ Running the Application
-```
+> Get a free Groq API key at [console.groq.com](https://console.groq.com/)
+
+**5. Launch the app**
+```bash
 streamlit run app.py
 ```
 
-Then open the browser link shown in the terminal.
+---
 
+## 📁 Project Structure
 
-# 🧪 Example Use Cases
-
-Question answering from study materials
-
-Research paper exploration
-
-Company policy document analysis
-
-Resume or report-based Q&A
-
-Learning and knowledge retrieval systems
-
-# 📌 Packaging the Project
-
-This project uses setup.py for packaging.
-
-To install the project in editable mode:
 ```
-pip install -e .
+information-retrival-system/
+├── app.py                  # Streamlit UI & app entry point
+├── src/
+│   ├── __init__.py
+│   └── helper.py           # RAG pipeline (PDF → chunks → embeddings → LLM)
+├── research/
+│   └── trials.ipynb        # Experimentation notebook
+├── setup.py                # Project packaging
+├── requirements.txt        # Dependencies
+└── .env                    # API keys (not committed)
 ```
+
+---
+
+## 📬 Contact
+
+Made by **Deepak** · [GitHub](https://github.com/Deepak77-ai)
